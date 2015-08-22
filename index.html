@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Learning</title>
+    <link rel="stylesheet" href="bower_component/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+  <body ng-app="app">
+
+    <div class='containter' ng-controller='ContactsController'>
+      <div class='row'>
+        <div class='col-md-6'>
+
+
+                <contact></contact>
+
+        </div><!--col-md-6-->
+      </div><!--class-->
+  </div><!--container-->
+
+
+
+  <script src="bower_components/angularjs/angular.min.js"></script>
+      <script>
+            (function(){
+                'use strict';
+                angular.module('app', [])
+                    .controller('ContactsController', function($scope){
+                        $scope.contact = {
+                            'firstName': 'Deanna',
+                            'lastName': 'Riddlespur',
+                            'added': new Date()
+
+                        };
+
+                    })
+                    .filter('upperCase', function(){
+                        return function(input, extraArgument){
+                            console.log(extraArgument);
+                            return input.toUpperCase();
+
+                        };
+                    })
+                    .directive('firstName', function(){
+                        return{
+                            restrict: 'E',
+                            template: '<p>{{ contact.firstName  }}</p>'
+                        };
+                    })
+                    .directive('lastName', function(){
+                        return {
+                            restrict: 'E',
+                            template: '<p>{{ contact.lastName  }}</p>'
+                        }
+                    })
+                    .directive('added', function(){
+                        return {
+                            restrict: 'E',
+                            template: '<p>{{ contact.added }}</p>'
+
+                        }
+                    })
+                    .directive('contact', function(){
+                        return{
+                            restrict:'E',
+                            template: '<first-name></first-name><last-name></last-name><added></added>'
+                        }
+                    })
+
+            })();
+      </script>
+  </body>
+</html>
