@@ -3,11 +3,26 @@
     <head>
     <title>Learning it</title>
     <link rel="stylesheet" href="bower_component/bootstrap/dist/css/bootstrap.min.css">
+        <style>
+        table, th , td  {
+          border: 1px #D3D3D3;
+          border-collapse: collapse;
+          padding: 5px;
+        }
+        table tr:nth-child(odd) {
+          background-color: #f1f1f1;
+        }
+        table tr:nth-child(even) {
+          background-color: #ffffff;
+        }
+        </style>
     </head>
   <body ng-app="app">
-      <p>Input something in the input box:</p>
-    <p>Name : <input type="text" ng-model="firstName"placeholder="Enter name here"></p>
-    <h1>Hello {{firstName}}</h1>
+  <table>
+   <td>   <p>Input something in the input box:</p></td>
+   <td> <p>Name : <input type="text" ng-model="firstName"placeholder="Enter name here"></p></td>
+<tr><td>    <h1>Hello {{firstName}}</h1></td></tr>
+</table>
 
     <div class='containter' ng-controller='ContactsController'>
       <div class='row'>
@@ -72,13 +87,14 @@
             })();
       </script>
       <div data-ng-app="" data-ng-init="quantity=1;price=5">
+<table>
+<thead><h2>Cost Calculator</h2></thead>
 
-<h2>Cost Calculator</h2>
+<tr><td>Quantity: <input type="number" ng-model="quantity"></td></tr>
+<tr><td>Price: <input type="number" ng-model="price"></td></tr>
 
-Quantity: <input type="number" ng-model="quantity">
-Price: <input type="number" ng-model="price">
-
-<p><b>Total in dollar:</b> {{quantity * price}}</p>
+<tr><td><p><b>Total in dollar:</b> {{quantity * price}}</p></td></tr>
+</table>
 
 </div>
   </body>
